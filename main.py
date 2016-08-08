@@ -11,6 +11,8 @@ from helpers.FaceDetectHelpers import *
 exitFlag = 0
 #image path
 PATH = 'data/'
+#Define Queue Size based on the number of input images
+QUEUE_SIZE=112
 
 #Define a new subclass of the Thread class
 #and Override the __init__ function
@@ -52,7 +54,7 @@ def process_image_queue(threadName, q):
 #on your system resource profile
 threadList = ["Thread-1", "Thread-2", "Thread-3"]
 queueLock = threading.Lock()
-workQueue = Queue.Queue(37601)
+workQueue = Queue.Queue(QUEUE_SIZE)
 threads = []
 threadID = 1
 

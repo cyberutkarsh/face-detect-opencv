@@ -1,3 +1,6 @@
+#Main File - Multithreaded queue based implementation of OpenCV based human facial detection.
+#To Run: python main.py
+
 import Queue
 import threading
 import time
@@ -9,6 +12,8 @@ exitFlag = 0
 #image path
 PATH = 'data/'
 
+#Define a new subclass of the Thread class
+#and Override the __init__ function
 class myThread (threading.Thread):
     def __init__(self, threadID, name, q):
         threading.Thread.__init__(self)
@@ -17,10 +22,12 @@ class myThread (threading.Thread):
         self.q = q
     def run(self):
         print "Starting " + self.name
-        process_data(self.name, self.q)
+        process_image_queue(self.name, self.q)
         print "Exiting " + self.name
 
-def process_data(threadName, q):
+#classify each image through multiple classifiers accessing
+#them in the synchronized image queue
+def process_image_queue(threadName, q):
     while not exitFlag:
         queueLock.acquire()
         if not workQueue.empty():
@@ -41,6 +48,8 @@ def process_data(threadName, q):
             queueLock.release()
         time.sleep(1)
 
+#we'll start with 3 threads, this can be bumped up based 
+#on your system resource profile
 threadList = ["Thread-1", "Thread-2", "Thread-3"]
 queueLock = threading.Lock()
 workQueue = Queue.Queue(37601)
@@ -55,6 +64,7 @@ for tName in threadList:
     threadID += 1
 
 #Loop through all images in the data directory and Fill the queue
+#to create a workload for the threads
 queueLock.acquire()
 for imagename in os.listdir(PATH):
     workQueue.put(imagename)

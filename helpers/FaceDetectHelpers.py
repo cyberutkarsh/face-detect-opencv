@@ -16,7 +16,7 @@ def classify_frontface(imagepath):
         img = cv2.imread(imagepath)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-	faces = frontalface_default_classifier.detectMultiScale(gray, 1.20, 5)
+	faces = frontalface_default_classifier.detectMultiScale(gray, 1.3, 5)
 	for (x,y,w,h) in faces:
                 cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
                 roi_gray = gray[y:y+h, x:x+w]
@@ -30,7 +30,7 @@ def classify_frontface_alternate1(imagepath):
         img = cv2.imread(imagepath)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-	faces = frontalface_alt_classifier.detectMultiScale(gray, 1.20, 5)
+	faces = frontalface_alt_classifier.detectMultiScale(gray, 1.3, 5)
         for (x,y,w,h) in faces:
                 cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
                 roi_gray = gray[y:y+h, x:x+w]
@@ -44,7 +44,7 @@ def classify_frontface_alternate2(imagepath):
         img = cv2.imread(imagepath)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-	faces = frontalface_alt2_classifier.detectMultiScale(gray, 1.20, 5)
+	faces = frontalface_alt2_classifier.detectMultiScale(gray, 1.3, 5)
         for (x,y,w,h) in faces:
                 cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),2)
                 roi_gray = gray[y:y+h, x:x+w]
@@ -58,7 +58,7 @@ def classify_frontalface_alt_tree(imagepath):
         img = cv2.imread(imagepath)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-	faces = frontalface_alt_tree_classifier.detectMultiScale(gray, 1.20, 5)
+	faces = frontalface_alt_tree_classifier.detectMultiScale(gray, 1.3, 5)
         for (x,y,w,h) in faces:
                 cv2.rectangle(img,(x,y),(x+w,y+h),(0,128,128),2)
                 roi_gray = gray[y:y+h, x:x+w]
@@ -71,7 +71,7 @@ def classify_profileface(imagepath):
         img = cv2.imread(imagepath)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-	faces = profileface_classifier.detectMultiScale(gray, 1.20, 5)
+	faces = profileface_classifier.detectMultiScale(gray, 1.3, 5)
         for (x,y,w,h) in faces:
                 cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,255),2)
                 roi_gray = gray[y:y+h, x:x+w]

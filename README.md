@@ -19,12 +19,12 @@ These instructions basically help you install docker and setup the environment b
 
 ### Setup environment based using Dockerfile
 > 
-* Clone the repo using `git clone git@github.com:cyberutkarsh/face-detect-opencv.git`
+* Clone the repo using `git clone https://github.com/cyberutkarsh/face-detect-opencv.git`
 * Change directory to the repo directory `cd face-detect-opencv`
 * Build the docker image using the docker build command `docker build --no-cache -t face-detect-ubuntu-opencv-python:1.0 .`
 * After the build completes run `docker images` to make sure that the image was successfully created. You should see a image with REPOSITORY NAME face-detect-ubuntu-opencv-python abdandand TAG as 1.0
 * Start a docker container with the docker run command with interative shell and the image we just build `docker run -i -t face-detect-ubuntu-opencv-python:1.0 /bin/bash`
-* Change to your home directory `cd` Create your work directory e.g. projects `mkdir projects` and then clone the repo using `git clone git@github.com:cyberutkarsh/face-detect-opencv.git`.
+* Change to your home directory `cd` Create your work directory e.g. projects `mkdir projects` and then clone the repo using `git clone https://github.com/cyberutkarsh/face-detect-opencv.git`.
 * `cd face-detect-opencv' 
 * `python main.py`
 

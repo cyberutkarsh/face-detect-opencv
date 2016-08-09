@@ -27,3 +27,9 @@ These instructions basically help you install docker and setup the environment b
 * Change to your home directory `cd` Create your work directory e.g. projects `mkdir projects` and then clone the repo using `git clone git@github.com:cyberutkarsh/face-detect-opencv.git`.
 * `cd face-detect-opencv' 
 * `python main.py`
+
+### Issue with cloning into docker
+* If you have issues cloning into docker use wget to get the files `wget https://github.com/cyberutkarsh/face-detect-opencv/archive/master.zip`
+* `unzip master.zip`
+* `cd face-detect-opencv-master`
+* `python main.py`

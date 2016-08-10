@@ -12,7 +12,7 @@ exitFlag = 0
 #image path
 PATH = 'data/'
 #Define Queue Size based on the number of input images
-QUEUE_SIZE=112
+QUEUE_SIZE=int(len(os.listdir(PATH)))
 
 #Define a new subclass of the Thread class
 #and Override the __init__ function
